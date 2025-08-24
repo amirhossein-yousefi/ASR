@@ -29,7 +29,10 @@ def parse_args() -> TrainConfig:
     p.add_argument("--train_split", type=str, default="train")
     p.add_argument("--eval_split", type=str, default="validation")
     p.add_argument("--cache_dir", type=str, default=None)
-    p.add_argument("--output_dir", type=str, default="./outputs/asr")
+    # p.add_argument("--output_dir", type=str, default="./outputs/asr")
+    p.add_argument("--output_dir", default=os.environ.get("SM_MODEL_DIR", "outputs"))
+    p.add_argument("--train_dir", default=os.environ.get("SM_CHANNEL_TRAIN"))
+    p.add_argument("--eval_dir", default=os.environ.get("SM_CHANNEL_EVAL"))
 
     # Duration constraints
     p.add_argument("--max_duration", type=float, default=18.0)
@@ -41,7 +44,7 @@ def parse_args() -> TrainConfig:
     p.add_argument("--num_train_epochs", type=int, default=3)
     p.add_argument("--per_device_train_batch_size", type=int, default=16)
     p.add_argument("--per_device_eval_batch_size", type=int, default=16)
-    p.add_argument("--gradient_accumulation_steps", type=int, default=1)
+    p.add_argument("--gradient_accumulation_steps", type=int, default=4)
     p.add_argument("--warmup_ratio", type=float, default=0.05)
     p.add_argument("--max_grad_norm", type=float, default=1.0)
 
