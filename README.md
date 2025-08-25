@@ -88,12 +88,33 @@ python src/train.py \
   --num_train_epochs 3 \
   --per_device_train_batch_size 16 \
   --per_device_eval_batch_size 16 \
-  --gradient_accumulation_steps 4 \
+  --gradient_accumulation_steps 8 \
   --learning_rate 3e-5 \
   --warmup_ratio 0.05 \
   --output_dir ./outputs/asr
 ```
+**Download** the finetuned weights with bellow hyperparameter from [here](https://drive.google.com/file/d/1_ndR8_rxiocAao6OB0r1Sr3pth24USQq/view?usp=sharing)
+## ⚙️ Training Configuration
 
+| Category          | Setting                                                                 |
+|-------------------|-------------------------------------------------------------------------|
+| **Model**         | `facebook/wav2vec2-base-960h`                                           |
+| **Dataset**       | Common Voice 17.0 (`en`), text column: `sentence`                       |
+| **Duration**      | min: **1.0s**, max: **18.0s**                                           |
+| **Epochs**        | **3**                                                                   |
+| **Batch size**    | Train: **8** per device (×8 grad accumulation → effective **64**)       |
+| **Learning rate** | **3e-5**                                                                |
+| **Optimizer**     | `adamw_torch_fused`                                                     |
+| **Warmup ratio**  | 0.05                                                                    |
+| **Weight decay**  | 0.0                                                                     |
+| **Precision**     | FP16: ✅  | BF16: ❌ | Gradient checkpointing: ❌                         |
+| **Max grad norm** | 1.0                                                                     |
+| **Logging**       | every 50 steps                                                          |
+| **Eval/Save**     | every 500 steps, keep last 2 checkpoints, early stopping patience = 3   |
+| **Seed**          | 42                                                                      |
+| **Reports**       | TensorBoard                                                             |
+
+---
 
 ## 🖥️ Training Hardware & Environment
 
