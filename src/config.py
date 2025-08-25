@@ -13,7 +13,8 @@ class TrainConfig:
     eval_split: str = "validation"
     cache_dir: Optional[str] = None
     output_dir: str = "./outputs/asr"
-
+    train_dir: str = "./output/train"
+    eval_dir: str = "./output/eval"
     # Audio length constraints (seconds)
     max_duration: float = 18.0
     min_duration: float = 1.0
@@ -43,11 +44,11 @@ class TrainConfig:
 
     # Data processing
     use_augmentations: bool = True
-    noise_dir: Optional[str] = None   # folder with wav noise files (optional)
-    num_proc: int = 1                 # multiprocessing for dataset.map
+    noise_dir: Optional[str] = None  # folder with wav noise files (optional)
+    num_proc: int = 1  # multiprocessing for dataset.map
 
     # Optional LM decoding in inference & evaluation
-    lm_path: Optional[str] = None     # path to ARPA or binary kenlm
+    lm_path: Optional[str] = None  # path to ARPA or binary kenlm
     beam_width: int = 100
 
     # Samples limit (for quick dry runs)
