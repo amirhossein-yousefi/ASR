@@ -108,8 +108,8 @@ python src/train.py \
 
 ## 📊 Training Logs & Metrics
 
-- **Total FLOPs (training):** ``
-- **Training runtime:** `` seconds
+- **Total FLOPs (training):** `10,814,747,992,293,114,000`
+- **Training runtime:** `11,168.2969` seconds for 2,346 steps
 - **Logging:** TensorBoard-compatible logs in `src/logs/training-logs/`
 
 You can monitor training live with:
@@ -121,9 +121,12 @@ tensorboard --logdir src/output/logs
 ### 📉 Loss Curve
 The following plot shows the training loss progression:
 
-![Training Loss Curve](assets/)
+![Training Loss Curve](assets/train_loss.svg)
 
-
+### 📉 Eval wer Curve
+![Training Loss Curve](assets/eval_wer.svg)
+### 📉 Eval cer Curve
+![Training Loss Curve](assets/eval_cer.svg)
 **Notes**
 
 - If your dataset is gated, pass `--use_auth_token` (or login via `huggingface-cli login`).
