@@ -93,7 +93,7 @@ python src/train.py \
   --warmup_ratio 0.05 \
   --output_dir ./outputs/asr
 ```
-**Download** the finetuned weights with bellow hyperparameter from [here](https://drive.google.com/file/d/1_ndR8_rxiocAao6OB0r1Sr3pth24USQq/view?usp=sharing)
+**Download** the finetuned weights and tensorboard logs with bellow hyperparameter from [here](https://drive.google.com/file/d/1_ndR8_rxiocAao6OB0r1Sr3pth24USQq/view?usp=sharing)
 ## ⚙️ Training Configuration
 
 | Category          | Setting                                                                 |
