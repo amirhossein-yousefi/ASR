@@ -2,10 +2,21 @@
 
 Train, evaluate, export, and deploy ASR models using **Hugging Face Transformers** (e.g., Wav2Vec2 or Whisper‑CTC), the **datasets** library, and an opinionated data pipeline with robust audio loading and text normalization. Includes ready‑to‑use **AWS SageMaker** utilities for managed training, hyper‑parameter tuning, and real‑time inference endpoints.
 
-> **Defaults**: `facebook/wav2vec2-base-960h` fine‑tuned on Common Voice 17.0 (English) with CTC decoding. You can swap any compatible CTC model / dataset via CLI flags.
+> **Defaults**: `facebook/wav2vec2-base-960h` fine‑tuned on 50k subsample of Common Voice 17.0 (English) with CTC decoding. You can swap any compatible CTC model / dataset via CLI flags.
 
 ---
 
+## 🚀 Model on Hugging Face
+
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Automatic--Speech--Recognition-yellow.svg)](https://huggingface.co/Amirhossein75/ASR)
+
+<p align="center">
+  <a href="https://huggingface.co/Amirhossein75/ASR">
+    <img src="https://img.shields.io/badge/🤗%20View%20on%20Hugging%20Face-blueviolet?style=for-the-badge" alt="Hugging Face Repo">
+  </a>
+</p>
+
+---
 ## ✨ Highlights
 
 - **CTC training pipeline** built on `transformers` with an explicit `DataCollatorCTCWithPadding` and metric reporting (WER).  
